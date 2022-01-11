@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.nav-div{
+  
+display: flex;
+align-items: center;
+gap: 5rem;
+
+}
+
+.profilepic{
+width:10rem;
+ height:10rem;
+ border-radius:5rem
+}
+
+
+body{
+    font-family: 'Be Vietnam Pro', sans-serif !important;
+}
+input{
+    font-family: 'Be Vietnam Pro', sans-serif !important;
+}
+a{
+    color: black !important;
+
+}
+.brandphoto{
+    width: 15rem;
+    height: 4.5rem;
+    padding: 0.6rem;
+}
+
+.signin-card-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../public/mainbg.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+.signin-card{
+    padding: 2rem;
+    max-width: 30rem;
+    text-align: center;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.233);
+    border-radius: 1rem;
+    margin-top: 4rem;
+}
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid rgb(3, 141, 253) !important;
+    box-shadow: 0 1px 0 0 rgb(3, 141, 253) !important;
+  }
+  .input-field input[type=password]:focus {
+    border-bottom: 1px solid rgb(3, 141, 253) !important;
+    box-shadow: 0 1px 0 0 rgb(3, 141, 253) !important;
+  }
+.gallery{
+    padding-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+  .item{
+      width: 30%;
+  }
+  .home{
+      max-width: 80rem;
+      padding:0.5rem 1rem 1rem 1rem;
+      box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.26);
+      border-radius: 1rem;
+      margin-top: 1rem;
+  }
+  .postedbyname{
+      margin:0;
+      padding: 0.5rem;
+  }
+  
+  .home-big-div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 3rem;
+  }
+
+  #toast-container{
+      top: 6rem !important;
+      right: 30rem !important;
+      left: 30rem !important;
+  }
+  .img{
+    max-width: 25rem;
+}
+.logout{
+    font-family: 'Be Vietnam Pro', sans-serif !important;
+    background-color: rgb(231, 56, 56);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    transition: all 0.6s;
+    color: white;
+    border: 0.1rem solid rgb(231, 56, 56);
+    border-radius: 0.5rem;
+    margin-right:2rem;
+}
+.logout:hover{
+    font-family: 'Be Vietnam Pro', sans-serif !important;
+    background-color: rgb(172, 47, 47);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    transition: all 0.6s;
+    border: 0.1rem solid rgb(231, 56, 56);
+    margin-right:2rem;
+}
+.uploadbtn{
+    font-family: 'Be Vietnam Pro', sans-serif !important;
+    background-color: rgb(10, 96, 255);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    transition: all 0.6s;
+    color: white;
+    border: 0.1rem solid rgb(10, 96, 255);
+    border-radius: 0.5rem;
+}
+.uploadbtn:hover{
+    font-family: 'Be Vietnam Pro', sans-serif !important;
+    background-color: rgb(33, 64, 201);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    transition: all 0.6s;
+    color: white;
+    border: 0.1rem solid rgb(33, 64, 201)
+}
+
+.postbtn{
+    font-family: 'Be Vietnam Pro', sans-serif !important;
+    background-color: rgb(10, 96, 255);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    transition: all 0.6s;
+    margin: 1rem;
+    color: white;
+    border: 0.1rem solid rgb(10, 96, 255);
+    border-radius: 0.5rem;
+}
+.postbtn:hover{
+    font-family: 'Be Vietnam Pro', sans-serif !important;
+    background-color: rgb(33, 64, 201);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin: 1rem;
+    transition: all 0.6s;
+    color: white;
+    border: 0.1rem solid rgb(33, 64, 201)
+}
+
+.donthave{
+    color: rgb(10, 96, 255);
+    font-family: 'Be Vietnam Pro', sans-serif !important;
+
+}
+
+.likeunlike{
+    display: flex;
+    gap: 1rem;
+}
+
+.brand-logo{
+    margin-left: 4rem;
+}
+.responsive{
+    display:none
+}
+.signuplink{
+    margin-right: 4rem;
+    
+}
+  @media screen and (max-width:768px){
+      #toast-container{
+        top: 2rem !important;
+        right: 2rem !important;
+        left: 2rem !important;
+      }
+      .home{
+        max-width: 22rem;
+        margin-top: 5rem;
+        padding:1rem;
+        box-shadow: 10px 10px 40px -6px rgba(168,168,168,1);
+        
+    }
+    .logout{
+        font-family: 'Be Vietnam Pro', sans-serif !important;
+        background-color: rgb(231, 56, 56);
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        transition: all 0.6s;
+        color: white;
+        border: 0.1rem solid rgb(231, 56, 56);
+        border-radius: 0.5rem;
+        margin: 0.4rem;
+    }
+    .signuplink{
+        margin-right: 0;
+    }
+    .responsive{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 4rem;
+        background:white;
+        
+    }
+    
+
+    .brand-logo{
+        margin-left: 0;
+    }
+    .signin-card{
+        padding: 2rem;
+        max-width: 25rem;
+        text-align: center;
+        box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.233);
+        border-radius: 1rem;
+        margin-top: 3rem;
+    }
+    .img{
+        max-width: 20rem;
+    }
+    .profilepic{
+        width:7rem;
+         height:7rem;
+         border-radius:3.5rem
+        }
+  }
