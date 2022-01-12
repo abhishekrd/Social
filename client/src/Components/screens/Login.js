@@ -68,7 +68,7 @@ const Login = () => {
          <div className='foot-div'>
          <h6 className='dev_id'>Coded with <i class="material-icons">favorite</i> by Abhishek | </h6>
          <h6>
-         <Link to={{ pathname: "https://www.linkedin.com/in/abhishek-dhanke-226354216/" }} target="_blank"><i class="material-icons">account_circle</i></Link>
+         <a target="_blank" href="https://www.linkedin.com/in/abhishek-dhanke-226354216/"><i class="material-icons">account_circle</i></a>
          </h6>
      </div>
      </>
