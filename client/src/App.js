@@ -60,7 +60,6 @@ function App() {
  <BrowserRouter>
  <NavBar />
  <Routing />
-
    </BrowserRouter>
    </UserContext.Provider>
    </>  );
