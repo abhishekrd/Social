@@ -30,7 +30,7 @@ const Login = () => {
             })
         }).then(res=>res.json())
         .then(data=>{
-            console.log(data)
+           // console.log(data)
             if(data.error){
               M.toast({html:data.error,classes:"#e53935 red darken-1"})
             }
@@ -67,9 +67,10 @@ const Login = () => {
         </div>
          <div className='foot-div'>
          <h6 className='dev_id'>Coded with <i class="material-icons">favorite</i> by Abhishek | </h6>
-         <h6>
+         
+         <div className='linkicon-div'><h6>
          <a target="_blank" href="https://www.linkedin.com/in/abhishek-dhanke-226354216/"><i class="material-icons">account_circle</i></a>
-         </h6>
+         </h6></div>
      </div>
      </>
     )

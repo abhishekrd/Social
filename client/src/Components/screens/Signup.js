@@ -63,9 +63,9 @@ const Login = () => {
         </div>
         <div className='foot-div'>
          <h6 className='dev_id'>Coded with <i class="material-icons">favorite</i> by Abhishek | </h6>
-         <h6 className='linkicon'>
+         <div className='linkicon-div'><h6>
          <a target="_blank" href="https://www.linkedin.com/in/abhishek-dhanke-226354216/"><i class="material-icons">account_circle</i></a>
-         </h6>
+         </h6></div>
      </div>
 </>
 

@@ -167,11 +167,14 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.5rem;
+    padding: 1rem;
     background-color: rgb(214, 214, 214);
 }
-.linkicon{
-    margin-top: 0.5rem;
+.linkicon-div{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 0.5rem;
 }
 .brand-logo{
     margin-left: 4rem;
