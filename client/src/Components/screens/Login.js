@@ -66,10 +66,10 @@ const Login = () => {
             </div>
         </div>
          <div className='foot-div'>
-         <h5 className='dev_id'>Coded with <i class="material-icons">favorite</i> by Abhishek | </h5>
-         <p>
-         <Link to={{ pathname: "https://www.linkedin.com/in/abhishek-dhanke-226354216/" }} target="_blank" /><i class="material-icons">account_circle</i>
-         </p>
+         <h6 className='dev_id'>Coded with <i class="material-icons">favorite</i> by Abhishek | </h6>
+         <h6>
+         <Link to={{ pathname: "https://www.linkedin.com/in/abhishek-dhanke-226354216/" }} target="_blank"><i class="material-icons">account_circle</i></Link>
+         </h6>
      </div>
      </>
     )

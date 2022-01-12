@@ -167,8 +167,11 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 1.5rem;
     background-color: rgb(214, 214, 214);
+}
+.linkicon{
+    padding-top: 0.5rem;
 }
 .brand-logo{
     margin-left: 4rem;
