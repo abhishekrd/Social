@@ -163,7 +163,13 @@ a{
     display: flex;
     gap: 1rem;
 }
-
+.foot-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: rgb(214, 214, 214);
+}
 .brand-logo{
     margin-left: 4rem;
 }
