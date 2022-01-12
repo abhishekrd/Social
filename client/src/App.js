@@ -9,7 +9,7 @@ import Profile from './Components/screens/Profile';
 import CreatePost from './Components/screens/CreatePost';
 import { reducer,initialState } from './reducers/userReducer';
 import UserProfile from './Components/screens/UserProfile';
-import Footer from './Components/Footer';
+
 
 export const UserContext = createContext()
 
@@ -60,7 +60,7 @@ function App() {
  <BrowserRouter>
  <NavBar />
  <Routing />
- <Footer />
+
    </BrowserRouter>
    </UserContext.Provider>
    </>  );
