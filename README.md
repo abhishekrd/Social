@@ -7,4 +7,4 @@ Delete Post,
 like/unlike posts,
 view other users profile
 
-# More features coming soon.....
+
