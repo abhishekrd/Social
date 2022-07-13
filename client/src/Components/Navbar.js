@@ -11,6 +11,7 @@ const NavBar = () => {
          return[
           <li><Link to="/profile">Profile</Link></li>,
         <li><Link to="/create">Createpost</Link></li>,
+        <li><Link to="/myfollowedposts">Followed Posts</Link></li>,
         <button className="logout" onClick={()=>{
         localStorage.clear()
         dispatch({type:"CLEAR"})

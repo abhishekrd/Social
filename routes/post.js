@@ -16,6 +16,18 @@ router.get("/allpost",requireLogin,(req,res) => {
     })
 })
 
+router.get("/followedposts",requireLogin,(req,res) => {
+    Post.find({postedBy:{$in:req.user.following}})
+    .populate("postedBy","_id name email")
+    .then(posts => {
+        res.json({posts})  //note that "posts" is equivalent to "posts:posts"
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+})
+
+
 router.post("/createpost",requireLogin,(req,res) => {
     const{ title,body,pic } = req.body;
     if(!title || !body || !pic){
