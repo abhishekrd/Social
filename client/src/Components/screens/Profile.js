@@ -15,6 +15,8 @@ const Profile = () => {
            setPics(result.mypost)
         })
     },[])
+
+   
     return (
         <div style={{maxWidth:"50rem", margin:"0rem auto"}}>
         <div style={{display:"flex",
@@ -32,10 +34,12 @@ const Profile = () => {
                  alignItems:"center",
                  gap:"1rem"
              }}>
-                 <h6>25 posts</h6>
-                 <h6>200 followers</h6>
-                 <h6>150 following</h6>
+                 <h6>{mypics.length} posts</h6>
+                 <h6>{state?state.followers.length:"0"} followers</h6>
+                 <h6>{state?state.following.length:"0"} following</h6>
              </div>
+
+           
             </div>
         </div>
 

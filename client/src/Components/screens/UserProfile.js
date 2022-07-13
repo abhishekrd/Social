@@ -1,10 +1,13 @@
 import React,{useEffect,useState,useContext} from 'react'
 import {UserContext} from '../../App'
 import {useParams} from 'react-router-dom'
+
+
 const Profile  = ()=>{
     const [userProfile,setProfile] = useState(null)
-    
+    const [followed,setFollowed] = useState(false)
     const {state,dispatch} = useContext(UserContext)
+
     const {userid} = useParams()
   
     useEffect(()=>{
@@ -19,6 +22,66 @@ const Profile  = ()=>{
             setProfile(result)
        })
     },[])
+
+    const follow = () => {
+        fetch("/follow",{
+            method:"PUT",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":"Bearer "+localStorage.getItem("jwt")
+            },
+            body:JSON.stringify({
+                followId:userid
+            })
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            dispatch({type:"UPDATE",payload:{followers:data.followers,following:data.following}})
+            localStorage.setItem("user",JSON.stringify(data))
+            setProfile((previous) => {
+                return {
+                    ...previous,
+                    user:{
+                      ...previous.user,
+                        followers:[...previous.user.followers, data._id]
+                      
+                    }
+                }
+            })
+            setFollowed(true);
+        })
+    }
+
+    const unfollow = () => {
+        fetch("/unfollow",{
+            method:"PUT",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":"Bearer "+localStorage.getItem("jwt")
+            },
+            body:JSON.stringify({
+                unfollowId:userid
+            })
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            dispatch({type:"UPDATE",payload:{followers:data.followers,following:data.following}})
+            localStorage.setItem("user",JSON.stringify(data))
+            setProfile((previous) => {
+                const newFollower = previous.user.followers.filter(item => item != data._id)
+                return {
+                    ...previous,
+                    user:{
+                      ...previous.user,
+                        followers:newFollower
+                    }
+                }
+            })
+            setFollowed(false)
+        })
+    }
 
     return (
         <>
@@ -40,12 +103,14 @@ const Profile  = ()=>{
                    <h5>{userProfile.user.email}</h5>
                    <div style={{display:"flex",justifyContent:"space-between",width:"108%"}}>
                        <h6>{userProfile.posts.length} posts</h6>
-                       <h6> 255 followers</h6>
-                       <h6> 200 following</h6>
+                       <h6> {userProfile.user.followers.length} followers</h6>
+                       <h6> {userProfile.user.following.length} following</h6>
                    </div>
-                   
-                  
 
+                 {followed ? <button className="postbtn" onClick={()=>unfollow()}>UNFOLLOW
+                </button> : <button className="postbtn" onClick={()=>follow()}>FOLLOW
+                </button>}
+                
                </div>
            </div>
      
