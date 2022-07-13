@@ -5,8 +5,8 @@ Login/Logout,
 Create a Post,
 Delete Post,
 like/unlike posts,
-view other users profile
-follow/unfollow users
+view other users profile,
+follow/unfollow users,
 see posts of followed users
 
 
