@@ -14,7 +14,7 @@ const CreatePost = () => {
 
     useEffect(() => {
       if(url){
-        fetch("https://social-backend-awke.onrender.com/createpost",{
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/createpost`,{
           method:"post",
           headers:{
           "Content-Type":"application/json",
@@ -76,13 +76,13 @@ const CreatePost = () => {
         boxShadow: "0px 10px 15px -3px rgba(0,0,0,0.233)"}}>
             <input type="text" placeholder='Title' value={title} onChange={(e) => setTitle(e.target.value)}/>
             <input type="text" placeholder='Body' value={body} onChange={(e) => setBody(e.target.value)}/>
-            <div class="file-field input-field">
+            <div className="file-field input-field">
       <div className="uploadbtn">
         <span>Upload Photo</span>
         <input type="file" onChange={(e) => setImage(e.target.files[0])}/>
       </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text"  placeholder='Select photo to upload'/>
+      <div className="file-path-wrapper">
+        <input className="file-path validate" type="text"  placeholder='Select photo to upload'/>
       </div>
     </div>
     <div style={{textAlign:"center"}}>

@@ -70,7 +70,7 @@ const Profile  = ()=>{
             dispatch({type:"UPDATE",payload:{followers:data.followers,following:data.following}})
             localStorage.setItem("user",JSON.stringify(data))
             setProfile((previous) => {
-                const newFollower = previous.user.followers.filter(item => item != data._id)
+                const newFollower = previous.user.followers.filter(item => item !== data._id)
                 return {
                     ...previous,
                     user:{
@@ -129,8 +129,8 @@ const Profile  = ()=>{
        
        
        : 
-       <div class="progress" style={{background:"white",height:"1rem",marginTop:"5rem"}}>
-       <div class="indeterminate" style={{background:"#2196f3"}}></div>
+       <div className="progress" style={{background:"white",height:"1rem",marginTop:"5rem"}}>
+       <div className="indeterminate" style={{background:"#2196f3"}}></div>
    </div>}
        
        </> )
