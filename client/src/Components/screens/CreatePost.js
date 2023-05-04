@@ -14,7 +14,7 @@ const CreatePost = () => {
 
     useEffect(() => {
       if(url){
-        fetch("/createpost",{
+        fetch("https://social-backend-awke.onrender.com/createpost",{
           method:"post",
           headers:{
           "Content-Type":"application/json",

@@ -9,7 +9,7 @@ const Home = () => {
     const {state,dispatch} = useContext(UserContext)
        
     useEffect(() => {
-        fetch("/followedposts",{
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/followedposts`,{
             headers:{
             "Authorization":"Bearer "+localStorage.getItem("jwt")
         }
@@ -22,7 +22,7 @@ const Home = () => {
 
 
     const likePost = (id) => {
-        fetch("/like",{
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/like`,{
             method:"put",
             headers:{
                 "Content-type":"application/json",
@@ -44,7 +44,7 @@ const Home = () => {
         })
     }
     const unlikePost = (id) => {
-        fetch("/unlike",{
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/unlike`,{
             method:"put",
             headers:{
                 "Content-type":"application/json",
@@ -68,7 +68,7 @@ const Home = () => {
 
  
       const deletePost = (postid)=>{
-        fetch(`/deletepost/${postid}`,{
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/deletepost/${postid}`,{
             method:"delete",
             headers:{
                 Authorization:"Bearer "+localStorage.getItem("jwt")

@@ -24,7 +24,7 @@ const Profile  = ()=>{
     },[])
 
     const follow = () => {
-        fetch("/follow",{
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/follow`,{
             method:"PUT",
             headers:{
                 "Content-Type":"application/json",
@@ -54,7 +54,7 @@ const Profile  = ()=>{
     }
 
     const unfollow = () => {
-        fetch("/unfollow",{
+        fetch("${process.env.REACT_APP_BACKEND_URL}/unfollow",{
             method:"PUT",
             headers:{
                 "Content-Type":"application/json",

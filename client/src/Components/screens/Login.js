@@ -19,7 +19,7 @@ const Login = () => {
           return
       }
 
-        fetch("/signin",{
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/signin`,{
             method:"post",
             headers:{
             "Content-Type":"application/json"
