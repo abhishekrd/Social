@@ -4,8 +4,9 @@ const mongoose = require("mongoose")
 const User = mongoose.model("User")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
-const{ JWT_SECRET } = require("../config/keys")
 const requireLogin = require("../middlewares/requireLogin")
+const dotenv = require("dotenv")
+dotenv.config();
 
 
 router.post("/signup", (req, res) => {
@@ -60,7 +61,7 @@ router.post("/signin",(req,res) => {
         .then(doMatch => {
             if(doMatch){
                 /*res.status(400).json({message:"Successfully Signed in"})*/
-                const token = jwt.sign({_id:savedUser._id},JWT_SECRET)
+                const token = jwt.sign({_id:savedUser._id},process.env.JWT_SECRET)
 
                 const {_id,name,email,followers,following} = savedUser
                 res.json({token,user:{_id,name,email,followers,following}})
