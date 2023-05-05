@@ -11,6 +11,7 @@ const CreatePost = () => {
     const [body,setBody] = useState("");
     const [image,setImage] = useState("");
     const [url,setUrl] = useState("");
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
       if(url){
@@ -44,6 +45,10 @@ const CreatePost = () => {
     , [url])
 
     const postDetails = () => {
+      if(!image){
+        M.toast({html:"Please select a file to upload",classes:"#e53935 red darken-1"})
+      }
+      setLoading(true);
       const data = new FormData();
       data.append("file",image);
       data.append("upload_preset","MERN Social Media Clone");
@@ -55,6 +60,7 @@ const CreatePost = () => {
       .then(res => res.json())
       .then(data => {
         setUrl(data.url)
+        setLoading(false)
       })
       .catch(err => {
         console.log(err)
@@ -86,10 +92,10 @@ const CreatePost = () => {
       </div>
     </div>
     <div style={{textAlign:"center"}}>
-    <button className="postbtn"
-    onClick={() => postDetails()}>POST
-                </button>
-                </div>
+    
+    {loading ? <div className='loadWrap'><span className="loader"></span></div>: <button className="postbtn" onClick={() => postDetails()}>POST</button>}
+    </div>
+
         </div>
         </div>
     )

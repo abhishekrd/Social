@@ -85,7 +85,7 @@ a{
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      gap: 3rem;
+      gap: 2rem;
   }
 
   #toast-container{
@@ -160,6 +160,9 @@ a{
     gap: 1rem;
     cursor:pointer;
 }
+.likeunlike:hover{
+    cursor: pointer;
+}
 .foot-div{
     display: flex;
     justify-content: center;
@@ -226,13 +229,18 @@ a{
       }
       .home{
         max-width: 22rem;
-        margin-top: 5rem;
         padding:1rem;
         box-shadow: 10px 10px 40px -6px rgba(168,168,168,1);
-        
+    }
+    .home-big-div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 5rem;
+        gap: 1rem;
     }
     
-
     .signuplink{
         margin-right: 0;
     }
