@@ -11,6 +11,7 @@ const Login = () => {
     const [name,setName] = useState("");
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const PostData = () => {
 
@@ -19,7 +20,7 @@ const Login = () => {
           M.toast({html:"Please enter valid email", classes:"#e53935 red darken-1"})
           return
       }
-
+        setLoading(true);
         fetch(`${process.env.REACT_APP_BACKEND_URL}/signup`,{
             method:"post",
             headers:{
@@ -32,6 +33,7 @@ const Login = () => {
             })
         }).then(res=>res.json())
         .then(data=>{
+            setLoading(false)
             if(data.error){
               M.toast({html:data.error,classes:"#e53935 red darken-1"})
             }
@@ -47,15 +49,15 @@ const Login = () => {
     return (
         <>
         <div className='signin-card-div' >
-            <div className='card signin-card input-field'>
+            <div className='card signin-card input-field addFlex'>
 
-            <img className="brandphoto" src={process.env.PUBLIC_URL + '/Social.png'} />
+            <img src='./Social.png' className='brandphoto' alt='logo'/>
                 <input type="text" placeholder="Enter your Name" value={name} onChange={(e) => setName(e.target.value)}></input>
                 <input type="text" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
                 <input type="password" placeholder="Create your Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
 
-                <button className="postbtn" onClick={()=>PostData()}>SignUp
-                </button>
+                {/* <button className="postbtn" onClick={()=>PostData()}></button> */}
+                {loading ? <div className='loadWrap'><span className="loader"></span></div> : <button className="postbtn" onClick={()=>PostData()}>SignUp</button>}
              <h6 className='donthave'>
                 <Link to="/login">Already have an account? Login</Link>
                 </h6>

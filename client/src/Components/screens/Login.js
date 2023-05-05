@@ -11,6 +11,7 @@ const Login = () => {
 
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const PostData = () => {
 
@@ -18,6 +19,8 @@ const Login = () => {
           M.toast({html:"Please enter valid email", classes:"#e53935 red darken-1"})
           return
       }
+
+      setLoading(true);
 
         fetch(`${process.env.REACT_APP_BACKEND_URL}/signin`,{
             method:"post",
@@ -30,6 +33,7 @@ const Login = () => {
             })
         }).then(res=>res.json())
         .then(data=>{
+            setLoading(false);
            // console.log(data)
             if(data.error){
               M.toast({html:data.error,classes:"#e53935 red darken-1"})
@@ -51,15 +55,17 @@ const Login = () => {
     return (
         <>
         <div className='signin-card-div'>
-            <div className='card signin-card input-field'>
+            <div className='card signin-card input-field addFlex'>
 
             <img className="brandphoto" src={process.env.PUBLIC_URL + '/Social.png'} />
                 
                 <input type="text" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
                 <input type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
 
-                <button className="postbtn" onClick={()=>PostData()}>LOGIN
-                </button>
+                {/* <button className="postbtn" onClick={()=>PostData()}>{loading ? <span className="loader"></span> : "LOGIN"} */}
+                
+                {/* </button> */}
+                {loading ? <div className='loadWrap'><span className="loader"></span></div> : <button className='postbtn' onClick={()=>PostData()}>LOGIN</button> }
              <h6 className='donthave'>
                 <Link to="/signup">Don't have account? SignUp here</Link>
                 </h6>
