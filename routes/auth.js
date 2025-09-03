@@ -33,13 +33,16 @@ router.post("/signup", (req, res) => {
                     .then(user => {
                         res.json({ message: "Saved Successfully" })
                     }).catch(err => {
-                        console.log(err)
+                        console.log(err);
+                        res.status(500).json({ error: "Error saving user" });
                     })
+            }).catch(err => {
+                console.log(err);
+                res.status(500).json({ error: "Error hashing password" });
             })
-
-
     }).catch(err => {
-        console.log(err)
+        console.log(err);
+        res.status(500).json({ error: "Error checking existing user" });
     })
 
 })
@@ -70,7 +73,8 @@ router.post("/signin",(req,res) => {
               return res.status(422).json({error:"Invalid email or password"})
             }
         }).catch(err => {
-            console.log(err)
+            console.log(err);
+            res.status(500).json({ error: "Error comparing password" });
         })
     })
 })

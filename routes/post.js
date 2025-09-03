@@ -12,7 +12,8 @@ router.get("/allpost",requireLogin,(req,res) => {
         res.json({posts})  //note that "posts" is equivalent to "posts:posts"
     })
     .catch((err) => {
-        console.log(err)
+        console.log(err);
+        res.status(500).json({ error: "Error fetching all posts" });
     })
 })
 
@@ -23,7 +24,8 @@ router.get("/followedposts",requireLogin,(req,res) => {
         res.json({posts})  //note that "posts" is equivalent to "posts:posts"
     })
     .catch((err) => {
-        console.log(err)
+        console.log(err);
+        res.status(500).json({ error: "Error fetching followed posts" });
     })
 })
 
@@ -44,7 +46,8 @@ router.post("/createpost",requireLogin,(req,res) => {
         res.json({post:result})
     })
     .catch((err) => {
-        console.log(err)
+        console.log(err);
+        res.status(500).json({ error: "Error creating post" });
     })
 })
 
@@ -55,7 +58,8 @@ Post.find({postedBy:req.user._id})
     res.json({mypost})
 })
 .catch((err) => {
-    console.log(err)
+    console.log(err);
+    res.status(500).json({ error: "Error fetching your posts" });
 })
 
 })
